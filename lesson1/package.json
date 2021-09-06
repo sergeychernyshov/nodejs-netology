@@ -1,0 +1,19 @@
+{
+  "name": "lesson1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.js",
+    "task1": "node tasks/task1/task1.js",
+    "task2": "node tasks/task2/task2.js"
+  },
+  "keywords": [],
+  "author": "Segey Chernyshov <sergey_chernyshov_89@mail.ru>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "date-and-time": "^2.0.0",
+    "yargs": "^17.1.1"
+  }
+}
