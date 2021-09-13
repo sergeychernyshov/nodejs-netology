@@ -1,0 +1,17 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "coin ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Sergey Chernyshov <sergeu_chernyshov_89@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "moment": "^2.29.1"
+  }
+}

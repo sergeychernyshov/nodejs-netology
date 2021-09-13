@@ -1,0 +1,19 @@
+{
+  "sceneProperties":
+  {
+    "name" : "Орел или Решка",
+    "title": "Выберете: орел или решка",
+    "mainColor": "yellow",
+    "borderType": "line",
+    "winColor": "green",
+    "buttonGameProcess": "submit",
+    "buttonGameTitle": "Играть",
+    "buttonMainColor": "green",
+    "buttonFocusColor": "white",
+    "buttonResetProcess": "reset",
+    "buttonResetTitle": "заново",
+    "buttonAction": "press",
+    "imageType": "ansi",
+    "nameResult": "Статистика"
+  }
+}

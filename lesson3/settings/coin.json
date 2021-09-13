@@ -1,0 +1,10 @@
+{
+  "coinProperties": {
+    "name": "монетка",
+    "component": "coin",
+    "heads": "орел",
+    "1": "heads",
+    "tails": "решка",
+    "2": "tails"
+  }
+}
