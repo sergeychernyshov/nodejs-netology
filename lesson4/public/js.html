@@ -1,0 +1,45 @@
+<script>
+    function addData(name,val){
+        $('#report-data').find('tbody').append(
+            `<tr>
+                <td>${name}</td>
+                <td>${val}</td>
+            </tr>`);
+        }
+  $(document).ready(function(){
+    $('form.city').find('p').find('input[type="radio"]').on('click',function(){
+      console.log($(this).val());
+      const request = new XMLHttpRequest();
+      const url = "/getdata?city=" + $(this).val();
+      request.open('GET', url);
+
+      request.addEventListener("readystatechange", () => {
+        if (request.readyState === 4 && request.status === 200) {
+            var data = JSON.parse(request.responseText);
+            $('#report-data').find('tbody').html('');
+            addData('Местоположение',data.request.query);
+            addData('Широта',data.location.lat);
+            addData('Долгота',data.location.lon);
+            addData('Часовой пояс',data.location.timezone_id);
+            addData('Местное время',data.location.localtime);
+            addData('Температура',data.current.temperature);
+            addData('Ощущается',data.current.feelslike);
+            addData('Скорость ветра',data.current.wind_speed);
+            addData('Направление ветра',data.current.wind_dir);
+            addData('Осадки',data.current.precip);
+            addData('Влажность',data.current.humidity);
+            addData('Видимость',data.current.visibility);
+
+
+
+
+
+
+        }else{
+            console.log(request.status,request.readyState,request.response,);
+        }
+      });
+      request.send();
+    })
+  })
+</script>
