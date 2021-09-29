@@ -1,0 +1,1 @@
+module.exports = { id: 1, mail: "test@mail.ru" }

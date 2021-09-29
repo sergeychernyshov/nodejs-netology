@@ -1,0 +1,21 @@
+create table PRODUCT_ACTION(KOD NUMBER, ARTICLE VARCHAR2(100) NOT NULL, TYPE VARCHAR2(100) NOT NULL);
+
+CREATE SEQUENCE supplier_seq 
+  START WITH 1
+  INCREMENT BY 1
+  noCACHE;
+
+create or replace trigger trg_housing_problem
+before INSERT OR UPDATE
+on PRODUCT_ACTION
+for each row
+begin
+    if (inserting) then
+        :new.KOD := supplier_seq.nextval();
+    end if;
+    if (updating) then
+        if (:new.KOD != :old.KOD) then
+            raise_application_error(-20001,'Обновлять идентификатор запрещено!');
+        end if;   
+    end if;
+end trg_housing_problem;
