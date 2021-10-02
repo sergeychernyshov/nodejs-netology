@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const router = Router()
 
-const LoginApi = require('../../../api/user/login/loginApi')
+const LoginApi = require('../../api/user/login/loginApi')
 
 router.post('/user/login',(req,res) => {
     res.statusCode = LoginApi.getStatusCode()
