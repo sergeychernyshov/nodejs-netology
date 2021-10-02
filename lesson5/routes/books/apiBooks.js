@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const router = Router()
 
-const BooksApi = require('../../../api/books/booksApi')
+const BooksApi = require('../../api/books/booksApi')
 const booksApi = new BooksApi()
 
 router.get('/books',async (req, res) => {
