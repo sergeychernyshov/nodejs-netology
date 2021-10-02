@@ -1,0 +1,83 @@
+<body>
+    <div id="preloader">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </div>
+
+    <header class="header_area">
+        <div class="container">
+            <div class="header_content">
+                <div class="row">
+                    <%- include("../template/logo.ejs") %>
+                    <div class="col-md-9 col-sm-10 nav_area">
+                        <%- include("../template/menu.ejs", {title: title, menu: menu}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="breadcrumb_area">
+        <div class="breadcrumb_top">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_title section-padding">
+                        <h2><%=title%> </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_nav">
+                        <div class="col-sm-5">
+                            <h2><%=title%><%=book?': '+book.title:''%></h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul>
+                                <li><a href="/">Главная</a></li>
+                                <li><%=title%></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <% if(book){ %>
+        <section class="our_courses_area section-padding course-page">
+            <div class="container">
+                <div class="single_blog_post_box">
+                    <div class="blog_post_txt">
+                        <div class="blog_post_heading">
+                            <h2><a href="single-post.html"><%=book.title%></a></h2>
+                            <p>Автор : <%=book.authors%></p>
+                            <p>Главный герой : <%=book.favorite%></p>
+                        </div>
+                        <div class="blog_post_content">
+                            <p><%=book.description%></p>
+                            <ul>
+                                <li><i class="pe-7s-comment"></i>12 Комментарий</li>
+                                <li><i class="pe-7s-like"></i>20 Понравилось</li>
+                                <li><i class="pe-7s-look"></i>45 Просмотров</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <% } else{ %>
+        <section class="not_found_404_area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="not_found404">
+                            <h2>Книга не найдена</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <% } %>
+</body>
