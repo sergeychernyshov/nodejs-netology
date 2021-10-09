@@ -1,0 +1,98 @@
+<body>
+<div id="preloader">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+
+<header class="header_area">
+    <div class="container">
+        <div class="header_content">
+            <div class="row">
+                <%- include("../template/logo.ejs") %>
+                <div class="col-md-9 col-sm-10 nav_area">
+                    <%- include("../template/menu.ejs", {title: title, menu: menu}) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="breadcrumb_area">
+    <div class="breadcrumb_top">
+        <div class="container">
+            <div class="row">
+                <div class="breadcrumb_title section-padding">
+                    <h2><%=title%> </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="breadcrumb_nav">
+                    <div class="col-sm-5">
+                        <h2><%=title%></h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <ul>
+                            <li><a href="/">Главная</a></li>
+                            <li><%=title%></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-0 col-sm-12">
+                <div class="send_email">
+                    <div class="section-padding">
+                        <h2>Редактировать книгу в библиотеке</h2>
+                        <div class="email_form">
+                            <form action="/api/books/<%=book.id%>" enctype="multipart/form-data" method="post">
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Название <span>*</span></label>
+                                    <input name="title" type="text" value="<%=book.title%>">
+                                </div>
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Автор <span>*</span></label>
+                                    <input name="authors" type="text" value="<%=book.authors%>">
+                                </div>
+
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Герой <span>*</span></label>
+                                    <input name="favorite" type="text" value="<%=book.favorite%>">
+                                </div>
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Обложка <span>*</span></label>
+                                    <input name="fileCover" type="text" value="<%=book.fileCover%>">
+                                </div>
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Название файла <span>*</span></label>
+                                    <input name="fileName" type="text" value="<%=book.fileName%>">
+                                </div>
+                                <div class="col-md-6 fix_p_r">
+                                    <label>Файл</label>
+                                    <input name="file" type="file">
+                                </div>
+                                <div class="col-md-6 fix_p_r">
+                                    <input name="mode" type="hidden" value="app">
+                                </div>
+
+                                <div class="col-md-12 fix_p_r">
+                                    <label>Описание <span>*</span></label>
+                                    <textarea name="description" name="" cols="30" rows="10"><%=book.description%></textarea>
+                                    <input type="submit" value="Сохранить"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
