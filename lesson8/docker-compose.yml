@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  redis:
+    image: redis
+    volumes:
+      - /*
+  counter_lib:
+    build: ../lesson8counter
+    ports:
+      - 3005:80
+    environment:
+      - PORT=80
+      - REDIS_URL=redis
+    depends_on:
+      - redis
+  books_lib:
+    build: .
+    volumes:
+      - /*
+    ports:
+      - 3000:3003
+    environment:
+      - PORT=3003
+      - COUNTER_URL=counter_lib
+    depends_on:
+      - counter_lib

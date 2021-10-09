@@ -1,0 +1,89 @@
+<body>
+<div id="preloader">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+
+<header class="header_area">
+    <div class="container">
+        <div class="header_content">
+            <div class="row">
+                <%- include("../template/logo.ejs") %>
+                <div class="col-md-9 col-sm-10 nav_area">
+                    <%- include("../template/menu.ejs", {title: title, menu: menu}) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="breadcrumb_area">
+        <div class="breadcrumb_top">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_title section-padding">
+                        <h2><%=title%></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_nav">
+                        <div class="col-sm-5">
+                            <h2><%=title%></h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul>
+                                <li><a href="/">Главная</a></li>
+                                <li><%=title%></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our_courses_area section-padding course-page">
+        <div class="container">
+            <% if(books.length > 0){ %>
+                <div class="row all_our_courses">
+                    <% books.forEach(book => { %>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single_our_course">
+                                <div class="sing_course_txt">
+                                    <img src="img/icon_course_1.png" alt="" class="course_icon">
+                                    <h2><%=book.title%></h2>
+                                    <p><%=book.description%></p>
+                                    <a href="/view/<%=book.id%>" class="rm_btn">Просмотр</a>
+                                    <a href="/update/<%=book.id%>" class="rm_btn">Редактировать</a>
+                                    <div class="view_all_course" style="padding-top: 20px;">
+                                        <div class="email_form" style="padding-top: 0px;">
+                                            <form action="/api/books/delete/<%=book.id%>" method="post">
+                                                <input name="mode" type="hidden" value="app">
+                                                <input type="submit" value="Удалить">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+            <% } else{ %>
+                <section class="not_found_404_area section-padding">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8">
+                                <div class="not_found404">
+                                    <h2>Библиотека пуста</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <% } %>
+            </div>
+        </div>
+    </section>
+</body>
