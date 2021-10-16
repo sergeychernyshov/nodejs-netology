@@ -1,4 +1,5 @@
 const path = require('path')
+const mongoose = require('mongoose')
 const express = require('express')
 const app = express()
 
@@ -36,6 +37,11 @@ const start = () => {
     app.use(errorMiddleware);
 
     const PORT = process.env.PORT || 3000
+    const mongoUrl = `mongodb+srv://chernyshov:${process.env.MONGOATLASSECRET}@cluster0.o3no6.mongodb.net/library?retryWrites=true&w=majority`
+    try{
+        await mongoose.connect(url,{useNewUrlParser: true})
+        console.log('connect mongoose')
+    }
     app.listen(PORT,()=>{
         console.log(`Server is running on ${PORT}`)
     })
