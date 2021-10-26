@@ -34,13 +34,21 @@ async function add(num) {
     }
 }
 
+<<<<<<< HEAD
 async function getAll() {
+=======
+async function getAll(num) {
+>>>>>>> 645fd20b045a72ba5e7372b8f18741db44cbd2d2
     const books = await Book.find({})
     console.log(books)
 }
 
 async function getById(id) {
+<<<<<<< HEAD
     const books = await Book.find({id:id})
+=======
+    const books = await Book.findById(id)
+>>>>>>> 645fd20b045a72ba5e7372b8f18741db44cbd2d2
     console.log(books)
 }
 
@@ -51,6 +59,7 @@ async function update(id,book) {
 
 async function run() {
     await connect()
+<<<<<<< HEAD
     //await add(1)
     //await add(2)
     //await getAll()
@@ -61,6 +70,18 @@ async function run() {
     //    authors: "authors999"
     //})
     //await getById(bookId)
+=======
+    await add(1)
+    await add(2)
+    await getAll()
+    const bookId = "61687c9264d5650041081674"
+    await getById(bookId)
+    await update(bookId,{
+        description: "description999",
+        authors: "authors999"
+    })
+    await getById(bookId)
+>>>>>>> 645fd20b045a72ba5e7372b8f18741db44cbd2d2
     await disconnect()
 }
 
